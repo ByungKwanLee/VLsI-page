@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<!-- Html Start -->
+<html>
+
+<!-- Head Start -->
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="Natural Language-based knowledge Distillation">
+  <meta property="og:title" content="VLsI: Verbalized Layers-to-Interactions"/>
+  <meta property="og:description" content="Natural Language-based knowledge Distillation"/>
+  <meta property="og:url" content=""/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="figures/vlsi_emoji.png" />
+  <meta property="og:image:width" content="2048"/>
+  <meta property="og:image:height" content="2048"/>
+
+
+  <meta name="twitter:title" content="VLsI: Verbalized Layers-to-Interactions">
+  <meta name="twitter:description" content="Natural Language-based knowledge Distillation">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="figures/vlsi_emoji.png">
+  <meta name="twitter:card" content="Natural Language-based knowledge Distillation">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="Vision Language Models, Knowledge Distillation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>VLsI: Verbalized Layers-to-Interactions from Large to Small Vision Language Models</title>
+  <link rel="shortcut icon" type="image/png" href="https://www.nvidia.com/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="css/others.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<!-- Head End -->
+
+<!-- Body Start -->
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop is-max-mobile">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title" style="font-size: 30pt;">
+              <img src="figures/vlsi_emoji.png" class="emoji-image">
+              <strong>VLsI</strong>: <strong>V</strong>erbalized <strong>L</strong>ayer<strong>s</strong>-to-<strong>I</strong>nteractions
+              <br>from Large to Small Vision Language Models
+            </h1>
+
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://sites.google.com/view/byungkwanlee">Byung-Kwan Lee</a><sup>1,2*</sup>&nbsp&nbsp&nbsp
+              </span>
+              <span class="author-block">
+                <a href="https://ryohachiuma.github.io/">Ryo Hachiuma</a><sup>1</sup>&nbsp&nbsp&nbsp
+              </span>
+              <span class="author-block">
+                <a href="https://vllab.ee.ntu.edu.tw/ycwang.html">Yu-Chiang Frank Wang</a><sup>1</sup>&nbsp&nbsp&nbsp
+              </span>
+              <br>
+              <span class="author-block">
+                <a href="https://www.ivllab.kaist.ac.kr/ivylab-ivllab">Yong Man Ro</a><sup>2†</sup>&nbsp&nbsp&nbsp
+              </span>
+              <span class="author-block">
+                <a href="https://kristery.github.io/">Yueh-Hua Wu</a><sup>1†</sup>
+              </span>
+            </div>
+
+            <div class="is-size-4 publication-authors">
+            <span class="eql-cntrb">
+                <small>
+                    <sup>*</sup>Work Done during Internship
+                    </small>
+                    <br>
+                    <small>
+                    <sup>†</sup>Corresponding Author
+                    </small>
+            </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>NVIDIA,&nbsp&nbsp&nbsp&nbsp<sup>2</sup>KAIST</span>
+            </div>
+
+            <!-- Logos -->
+            <div class="logos">
+                <img src="logo/nvidia-logo-horz.png" alt="NVIDIA Logo" class="nvidia-logo">
+                <img src="logo/kaist_logo.png" alt="KAIST EE Logo" class="kaist-logo">
+            </div>
+
+            <div class="column has-text-centered">
+            <div class="publication-links">
+
+
+            <!-- Arxiv PDF link -->
+            <span class="link-block">
+            <a href=""
+            class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+                <i class="fas fa-file-pdf"></i>
+            </span>
+            <span>Paper (Coming Soon!)</span>
+            </a>
+            </span>
+            
+            &nbsp;
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="subtitle has-text-centered"
+      style="margin-top: 10pt; font-size: 20pt; color: #20b30c; font-weight: 1000;">
+      ▶️ Verbalization Demo (Sound)
+      </div>
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <!-- Your video here -->
+        <source src="./video/vlsi-demo.mp4"
+        type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper Summary -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop is-max-mobile">
+  <div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+  <div class="content has-text-justified">
+      <strong>Summary:</strong>
+      The recent surge in high-quality visual instruction tuning samples from closed-source vision-language models (VLMs) such as GPT-4V has accelerated the release of open-source VLMs across various model sizes.
+      However, scaling VLMs to improve performance using larger models brings significant computational challenges, especially for deployment on resource-constrained devices like mobile platforms and robots.
+      To address this, we propose <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI: Verbalized Layers-to-Interactions, a new VLM family in 2B and 7B model sizes, which prioritizes efficiency without compromising accuracy.
+      <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI leverages a unique, layer-wise distillation process, introducing intermediate "verbalizers" that map features from each layer to natural language space, allowing smaller VLMs to flexibly align with the reasoning processes of larger VLMs.
+      This approach mitigates the training instability often encountered in output imitation and goes beyond typical final-layer tuning by aligning the small VLMs' layer-wise progression with that of the large ones.
+      We validate <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI across ten challenging vision-language benchmarks, achieving notable performance gains (11.0% for 2B and 17.4% for 7B) over GPT-4V without the need for model scaling, merging, or architectural changes.
+  </div>
+  </div>
+  </div>
+  </div>
+  </section>
+
+<!-- Overview video-->
+<div class="container is-max-desktop is-max-mobile">
+  <div class="hero-body">
+    <div class="subtitle has-text-centered"
+    style="font-family: 'Google Sans', sans-serif; margin-top: 10pt; font-size: 20pt; color: #20b30c; font-weight: 1000;">
+    ▶️ Overview Video (Sound)
+    </div>
+    <div class="publication-video">
+    <iframe src="https://drive.google.com/file/d/1Uoixcrev5K0Ao8iRJng-F4KU2jKv6rhh/preview"
+    allow="autoplay" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+<!-- End Overview video -->
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop is-max-mobile">
+  <div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+  <div class="content has-text-justified">
+      <strong>Motivation:</strong>
+      Open-source vision-language models (VLMs) like <a href="https://arxiv.org/abs/2408.03326">LLaVA-OneVision</a> and <a href="https://arxiv.org/abs/2409.12191">Qwen2-VL</a> have shown performance improvements by scaling such as 72B, but their computational demands hinder deployment in resource-constrained environments like mobile devices and robots.
+      Designing efficient VLMs capable of complex tasks without heavy hardware requirements remains a key challenge.
+      Previous methods, such as adding specialized modules or modifying architectures, increase engineering complexity and struggle with advanced visual reasoning tasks, as shown in recent complex benchmarks such as <a href="https://arxiv.org/abs/2308.02490">MM-Vet</a> and <a href="https://arxiv.org/abs/2311.16502">MMMU</a>.
+      This prompts the question of whether comparable or superior performance can be achieved without scaling or structural modifications.
+  </div>
+  </div>
+  </div>
+  </div>
+  </section>
+
+<!-- Image with caption -->
+<section class="section hero is-small">
+<div class="container is-max-desktop is-max-mobile">
+<figure class="image-container">
+  <div class="zoomcaption">🔍 Click to zoom in</div>
+  <img class="clickable-image" src="figures/figure1.png">
+  <figcaption><br>Figure 1: Performance overview of <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI on vision-language benchmarks. 
+    (a) Accuracy on MM-Vet for various model sizes, showing that <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI (2B and 7B) 
+    achieves competitive performance compared to proprietary closed-source VLMs. 
+    (b) Comparative evaluation on multiple challenging benchmarks, 
+    where <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI (green and blue) outperforms leading closed-source VLMs, 
+    including GPT-4V, Claude-3.5-Sonnet, and Gemini-1.5-Pro, highlighting its efficiency and effectiveness across diverse tasks.
+  </figcaption>
+</figure>
+</div>
+</section>
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop is-max-mobile">
+  <div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+  <div class="content has-text-justified">
+      <strong>Method:</strong>
+      We present <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI: Verbalized Layers-to-Interactions, 
+      a new VLM family that leverages an innovative, natural language-based distillation process to efficiently transfer knowledge from large to small VLMs.
+      Unlike traditional distillation methods, which often directly imitate outputs from a larger model, 
+      <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI introduces a layer-wise approach where each intermediate layer generates verbal responses in natural language space, enhancing interpretability and alignment with larger models.
+      This is achieved through a three-step process: 
+      (1) the verbalization step, which uses "verbalizers" to project intermediate features into the language space, 
+      making them interpretable as text-based responses; 
+      (2) the interaction step, which performs adaptive layer matching to align the reasoning progression between large and small VLMs; 
+      and (3) the reinforcement step, which finetunes the distilled VLMs for task-specific instruction-following responsiveness.
+  </div>
+  </div>
+  </div>
+  </div>
+</section>
+
+
+<!-- Image with caption -->
+<section class="section hero is-small">
+<div class="container is-max-desktop is-max-mobile">
+<figure class="image-container">
+  <div class="zoomcaption">🔍 Click to zoom in</div>
+  <img class="clickable-image" src="figures/figure2.png">
+  <figcaption><br>Figure 2: Illustration of the training process in <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI, 
+    showing (a) the verbalization step and (b) the interaction step. 
+    (a) In the verbalization step, intermediate layers in both the large- and small-backbone VLMs are equipped with a "verbalizer", 
+    allowing their outputs to be projected into natural language space. 
+    Autoregressive loss is applied to align these verbalized outputs with the target responses. 
+    (b) In the interaction step, each intermediate layer in the small-backbone VLM searches for a matching layer in the large backbone VLM 
+    within a specified range. For example, once the 2nd layer of the small VLM is matched with the 4th layer in the large VLM, 
+    the next matching search for the 3rd layer in the small VLM will proceed from the 5th to the 7th layers of the large VLM, ensuring progressive alignment.
+  </figcaption>
+</figure>
+</div>
+</section>
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop is-max-mobile">
+  <div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+  <div class="content has-text-justified">
+      <strong>Contribution:</strong>
+      We validate <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI's effectiveness across ten challenging benchmarks, 
+      demonstrating significant performance gains of 11.0% (2B model) and 17.4% (7B model) over GPT-4V. 
+      Notably, these improvements are achieved without increasing model size, merging modules, or modifying the architecture.
+      Consequently, it is able to make VLMs a practical and deployable solution for on-device applications in resource-constrained environments.
+      Furthermore, <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI is easy to implement and adaptable across different model architectures, 
+      showing significant gains not only with Qwen2-VL but also with LLaVA-OV, where it achieves a 19.7% improvement in 2B and 7B model sizes (Qwen2-VL), 
+      and a 34.5% improvement in 0.5B and 7B model sizes (LLaVA-OV) on challenging benchmarks like MMB, MM-Vet, and MMMU.
+  </div>
+  </div>
+  </div>
+  </div>
+</section>
+
+
+
+<!-- Slideshow container -->
+<section class="section hero is-small">
+  <div class="container is-max-desktop is-max-mobile">
+  <link rel="stylesheet" href="css/slider.css">
+  <div class="zoomcaption">👆 Click to Navigate Text Generation Quality</div>
+  <div class="slider-container">
+    <button class="slider-button left-button">&#10094;</button>
+    <img id="slider-image" src="figures/text/1.png">
+    <button class="slider-button right-button">&#10095;</button>
+  </div>
+  </div>
+</section>
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop is-max-mobile">
+  <div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+  <div class="content has-text-justified">
+      <strong>Verbalization Example:</strong>
+      Figure 3 illustrates the verbal responses generated at each intermediate layer in small-backbone VLM 
+      and <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI. Using the verbalized outputs to trace each layer's interpretive progression, 
+      this comparison highlights how both models gradually enhance understanding across layers. 
+      At the shallower layers, both models generate basic descriptions, focusing on large, simple shapes and colors. 
+      However, as <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI progresses to mid-level layers, 
+      it begins to recognize and articulate more complex visual structures, such as labeled shapes and their relative positions. 
+      In contrast, the small-backbone VLM's verbal responses remain relatively vague or repetitive, often lacking in specific relational details.
+      By the deeper layers, <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI demonstrates a clear advantage: its verbalizations shift towards identifying the correct pattern, 
+      explicitly referring to shapes and colors in alignment with the target response: "star with a dot". 
+      Meanwhile, the small-backbone VLM incorrectly predicts the missing image as a "diamond with a dot", 
+      failing to capture the specific pattern. This example underscores the effectiveness of 
+      <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI's layer-wise verbalization, 
+      where each stage of verbal responses helps the small-backbone VLM align with the larger one.
+  </div>
+  </div>
+  </div>
+  </div>
+  </section>
+
+<!-- Image with caption -->
+<section class="section hero is-small">
+<div class="container is-max-desktop is-max-mobile">
+<figure class="image-container">
+  <div class="zoomcaption">🔍 Click to zoom in</div>
+  <img class="clickable-image" src="figures/figure3.png">
+  <figcaption><br>Figure 3: Example of verbalized outputs from each intermediate target layer in an alternative small-backbone VLM 
+    (without <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI enhancements) and the <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI. 
+    The visual question prompts VLM to predict the missing image in a sequence pattern. 
+    The outputs illustrate how each layer progressively interprets the visual cues, 
+    with <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI accurately identifying the answer as 'a star with a dot' in the final layer, 
+    while the alternative small-backbone VLM incorrectly predicts 'a diamond with a dot'. 
+    This demonstrates the improved interpretative capability of <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI through layer-wise, 
+    language-based distillation.
+  </figcaption>
+</figure>
+</div>
+</section>
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop is-max-mobile">
+  <div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+  <div class="content has-text-justified">
+      <strong>Importance of Large VLM's Performance:</strong>
+      Figure 4 provides the challenging evaluation benchmarks' performances: MM-Vet and MMMU. 
+      Each cell represents the performances on their evaluation benchmarks, 
+      where the orange colored-values represent LLaVA-OV-based <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI's result 
+      and the purple ones represent Qwen2-VL-based result. 
+      This figure reveals consistent trends that using large- 
+      and small-backbone VLMs with more bigger model sizes enhances <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI's performances 
+      across all configurations.
+
+  </div>
+  </div>
+  </div>
+  </div>
+</section>
+
+
+<!-- Image with caption -->
+<section class="section hero is-small">
+<div class="container is-max-desktop is-max-mobile">
+<figure class="image-container">
+  <div class="zoomcaption">🔍 Click to zoom in</div>
+  <img class="clickable-image" src="figures/figure4.png">
+  <figcaption><br>Figure 4: Comparison of performance on MM-Vet and MMMU across different model size combinations in large and small backbone VLMs. 
+    Each cell shows the evaluation results for various interaction configurations between 0.5B, 2B, and 7B small backbone VLMs trained with 
+    either Qwen2-VL or LLaVA-OV as the large-backbone VLM.</figcaption>
+</figure>
+</div>
+</section>
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop is-max-mobile">
+  <div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+  <div class="content has-text-justified">
+      <strong>Matching Statistics:</strong>
+      Figure 5 illustrates, as the interaction step progresses, the small-backbone VLM gradually tries to learn about deeper layers' 
+      responses of the large-backbone VLM, which can be considered accelerating the process of reaching an answer.
+  </div>
+  </div>
+  </div>
+  </div>
+  </section>
+
+<!-- Image with caption -->
+<section class="section hero is-small">
+<div class="container is-max-desktop is-max-mobile">
+<figure class="image-container">
+  <div class="zoomcaption">🔍 Click to zoom in</div>
+  <img class="clickable-image" src="figures/figure5.png">
+  <figcaption><br>Figure 5: Distribution changes of the matched indices between small-backbone and large-backbone VLMs at the interaction step. 
+    The left figure shows the distribution at the beginning of training, while the right figure shows it at the end.</figcaption>
+</figure>
+</div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop is-max-mobile">
+  <div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+  <div class="content has-text-justified">
+      <strong>Limitation:</strong>
+      The large and small-backbone VLMs must share the same tokenizer and token index order when constructing VLsI. 
+      We will explore more general ways that accommodate different tokenizers and token index orders, 
+      potentially expanding <img src="figures/vlsi_emoji.png" class="emoji-content">VLsI's applicability and scalability.
+
+  </div>
+  </div>
+  </div>
+  </div>
+</section>
+
+
+<!-- Citation for This Template -->
+<footer class="footer">
+<div class="container">
+<div class="columns is-centered">
+    <div class="column is-8">
+    <div class="content">
+
+        <p>
+        This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+        You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+        Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+
+    </div>
+    </div>
+</div>
+</div>
+</footer>
+
+
+<!-- Java Script -->
+<script>
+  // Get all images with the class 'clickable-image'
+  const images = document.querySelectorAll(".clickable-image");
+
+  // Create a modal for the zoom effect
+  const modal = document.createElement("div");
+  modal.className = "fullscreen-modal";
+  document.body.appendChild(modal);
+
+  const closeButton = document.createElement("div");
+  closeButton.className = "close-btn";
+  closeButton.innerHTML = "&times;";
+  modal.appendChild(closeButton);
+
+  const fullscreenImage = document.createElement("img");
+  modal.appendChild(fullscreenImage);
+
+  // Add event listeners to all images
+  images.forEach((image) => {
+    image.addEventListener("click", () => {
+      fullscreenImage.src = image.src; // Set the modal image to the clicked image
+      modal.style.display = "flex";
+    });
+  });
+
+  // Close the modal on close button click
+  closeButton.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  // Close the modal on outside click
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+
+
+// slider
+const image_list = [
+    "figures/text/1.png",
+    "figures/text/2.png",
+    "figures/text/3.png",
+    "figures/text/4.png",
+    "figures/text/5.png",
+    "figures/text/6.png",
+    "figures/text/7.png",
+    "figures/text/8.png",
+    "figures/text/9.png",
+    "figures/text/10.png",
+    "figures/text/11.png",
+    "figures/text/12.png"
+];
+
+let currentIndex = 0;
+
+const sliderImage = document.getElementById("slider-image");
+const totalImages = image_list.length;
+
+// 이미지 변경 함수
+function showImage(index) {
+    sliderImage.src = image_list[index]; // 이미지만 즉시 변경
+}
+
+// 다음 이미지 표시
+function showNextImage() {
+    currentIndex = (currentIndex + 1) % totalImages;
+    showImage(currentIndex);
+}
+
+// 이전 이미지 표시
+function showPreviousImage() {
+    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+    showImage(currentIndex);
+}
+
+// 버튼 클릭 이벤트
+document.querySelector(".left-button").addEventListener("click", showPreviousImage);
+document.querySelector(".right-button").addEventListener("click", showNextImage);
+
+// 키보드 이벤트
+document.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+        showPreviousImage();
+    } else if (event.key === "ArrowRight") {
+        showNextImage();
+    }
+});
+
+</script>
+
+
+<!-- Body End -->
+</body>
+<!-- Html End -->
+</html>
